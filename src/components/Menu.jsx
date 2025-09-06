@@ -86,9 +86,6 @@ const Menu = ({ clearCanvas, setStrokeWidth, strokeWidth, canvasColor, setCanvas
                         <hr className="border-gray-500 mt-2" />
                         <p className="text-white">Change Canvas</p>
                         <div className="flex flex-row gap-2">
-                            {/* <button onClick={() => setCanvasColor("#ffffff")} className={`w-8 h-8 rounded-lg bg-white cursor-pointer ${canvasColor === "#ffffff" ? " border-primary border" : ''}`}></button>
-                            <button onClick={() => setCanvasColor("#000000")} className={`w-8 h-8 rounded-lg bg-black cursor-pointer ${canvasColor === "#000000" ? " border-primary border" : ''}`}></button>
-                            <button onClick={() => setCanvasColor("#1f3d36")} className={`w-8 h-8 rounded-lg bg-[#1f3d36] cursor-pointer ${canvasColor === "#1f3d36" ? " border-primary border" : ''}`}></button> */}
                             <button onClick={() => setCanvasColor("#121212")} className={`w-8 h-8 rounded-lg bg-[#121212] cursor-pointer ${canvasColor === "#121212" ? " border-primary border" : ''}`}></button>
                         </div>
                     </div>
