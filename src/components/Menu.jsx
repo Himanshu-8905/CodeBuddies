@@ -6,19 +6,6 @@ import { AiFillFolderOpen } from "react-icons/ai"
 import { toast } from "react-hot-toast"
 
 const Menu = ({ clearCanvas, setStrokeWidth, strokeWidth, canvasColor, setCanvasColor, setElements, elements, updateCanvas }) => {
-    const saveFile = () => {
-        const data = JSON.stringify(elements)
-        console.log(data)
-        const blob = new Blob([data], { type: 'application/ink' })
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.download = 'drawing.ink'
-        link.href = url
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-    }
-
     const loadFile = () => {
         const input = document.createElement('input');
         input.type = 'file';
@@ -69,10 +56,6 @@ const Menu = ({ clearCanvas, setStrokeWidth, strokeWidth, canvasColor, setCanvas
                     <div className="absolute bottom-12 right-0 flex flex-col w-[150px] bg-secondary rounded-lg p-2 gap-1 z-40 shadow-lg">
                         <button onClick={clearCanvas} className="flex items-center text-sm p-2 rounded-lg cursor-pointer font-extrabold text-[#b9bed0] hover:bg-slate-600 active:text-primary active:bg-tertiary">
                             <MdDeleteOutline size={25} className="text-pink-900" /> Clear Canvas
-                        </button>
-                        <hr className="border-gray-500" />
-                        <button onClick={saveFile} className="flex gap-2 items-center text-base p-2 rounded-lg cursor-pointer font-extrabold text-[#b9bed0] hover:bg-slate-600 active:text-primary active:bg-tertiary">
-                            Save File <FaSave size={15} className="text-gray-300" />
                         </button>
                         <hr className="border-gray-500" />
                         <button onClick={loadFile} className="flex gap-2 items-center text-base p-2 rounded-lg cursor-pointer font-extrabold text-[#b9bed0] hover:bg-slate-600 active:text-primary active:bg-tertiary">
