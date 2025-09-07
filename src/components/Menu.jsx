@@ -6,38 +6,6 @@ import { AiFillFolderOpen } from "react-icons/ai"
 import { toast } from "react-hot-toast"
 
 const Menu = ({ clearCanvas, setStrokeWidth, strokeWidth, canvasColor, setCanvasColor, setElements, elements, updateCanvas }) => {
-    const loadFile = () => {
-        const input = document.createElement('input');
-        input.type = 'file';
-
-        input.accept = '.ink';
-
-        input.onchange = (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const fileName = file.name;
-                if (fileName.endsWith('.ink')) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const data = JSON.parse(event.target.result);
-                        setElements(data);
-                        updateCanvas(data);
-                    };
-                    reader.readAsText(file);
-                    toast('File Loaded Successfully',
-                        {
-                            icon: '📁',
-                            style: { borderRadius: '10px', background: '#333', color: '#fff' },
-                        }
-                    )
-                } else {
-                    alert('Please select a valid .ink file.');
-                }
-            }
-        };
-
-        input.click();
-    };
 
     useEffect(() => {
         clearCanvas()
@@ -56,10 +24,6 @@ const Menu = ({ clearCanvas, setStrokeWidth, strokeWidth, canvasColor, setCanvas
                     <div className="absolute bottom-12 right-0 flex flex-col w-[150px] bg-secondary rounded-lg p-2 gap-1 z-40 shadow-lg">
                         <button onClick={clearCanvas} className="flex items-center text-sm p-2 rounded-lg cursor-pointer font-extrabold text-[#b9bed0] hover:bg-slate-600 active:text-primary active:bg-tertiary">
                             <MdDeleteOutline size={25} className="text-pink-900" /> Clear Canvas
-                        </button>
-                        <hr className="border-gray-500" />
-                        <button onClick={loadFile} className="flex gap-2 items-center text-base p-2 rounded-lg cursor-pointer font-extrabold text-[#b9bed0] hover:bg-slate-600 active:text-primary active:bg-tertiary">
-                            Open File <AiFillFolderOpen size={17} className="text-gray-300" />
                         </button>
                         <hr className="border-gray-500" />
                         <label className="text-[#b9bed0]">
