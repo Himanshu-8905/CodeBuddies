@@ -11,7 +11,6 @@ import { Toaster } from "react-hot-toast";
 import CallEnd from "./call-end.jsx";
 import App from "./App.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
   <>
     <Toaster position="top-center" reverseOrder={false} />
     <Router>
@@ -22,5 +21,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </Routes>
     </Router>
   </>
-  // </React.StrictMode>
 );
